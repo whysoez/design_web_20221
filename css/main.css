@@ -1,0 +1,58 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.main-logo_head {
+    background: url(../images/header-moi.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 100vw;
+    width: 100%;
+    height: 130px;
+    margin-top: -1px;
+}
+
+.main-search {
+    margin-left: 60%;
+}
+
+.main-log {
+    display: flex;
+    height: 40px;
+    flex-direction: row;
+}
+
+.main-login {
+    min-width: 72px;
+}
+
+.main-search_icon {
+    margin-left: -600%;
+}
+
+.main-log >div {
+    margin: 10px 1px auto 1px;
+    text-align: center;
+}
+
+.main-log >div >input {
+    border-radius: 3px;
+    width: 100%;
+}
+
+.nav_content {
+    height: 50px;
+    background-color: #0c4ca3;
+}
+.scroll {
+    height: 2000px;
+    /* background-color: yellow; */
+}
+
+a {
+    text-decoration: none;
+}
