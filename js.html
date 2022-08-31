@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>học js</title>
+    <!-- <script src="jquery-3.6.0.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+        $("#show").click(function(){
+            // alert($("#pop")[0].innerHTML);
+
+            $("#abs").html($("#pop")[0].innerHTML);
+        });
+        });
+        </script>
+    <script>
+        var str = "đây là website chạy bằng js";
+        console.log(str);
+        document.writeln(str+" oke!");
+        function sum()
+        {
+            var m = Number(document.getElementById("a").value);
+            var n = Number(document.getElementById("b").value);
+            var num = m + n;
+            alert("tổng của" + m + " " + n + " là: " + num);
+            return m+n;
+        }
+        // console.log(num);
+
+        let a = () => {
+            return 7;
+        }
+
+        console.log(a());
+
+        function show_value(){
+            var a = document.getElementById("show");
+            var b = document.getElementById("content").value;
+            a.innerHTML = b + " ";
+
+        }
+
+    </script>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .green:hover ~ .box_change {
+            background-color: green;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .yellow:hover ~ .box_change {
+            background-color: yellow;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .red:hover ~ .box_change {
+            background-color: red;
+        }
+
+        .box_change {
+            width: 200px;
+            height: 200px;
+            border: 2px solid green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="">
+        nhập vào số a: 
+        <input type="text" name="" id="a">
+        nhập vào số b:
+        <input type="text" name="" id="b">
+        <button onclick="sum()">tính tổng</button>
+    </form>
+
+    <input onkeydown="show_value()" type="text" name="" id="content">
+
+
+
+    <h1 id="show"><button>an vo</button></h1>
+
+    <!-- tag thực hành jquery -->
+    <p id="pop">lấy giá trị hiển thị lên bằng jquery</p>
+
+    <button id="bt">enter</button>
+    <!-- viết jquery ở cuối để chắc chắn rằng tất cả những thành phần
+    html của chúng ta đã được load xong, nếu không sử dụng asyn
+    -->
+
+    <div class="box green">xanh</div>
+    <div class="box yellow">vàng</div>
+    <div class="box red">đỏ</div>
+
+    <div class="box_change">thay đổi màu</div>
+    <div id="abs">sss</div>
+    <!-- <script>
+        $(document).ready(function() {
+            $("#bt").click(function() {
+                alert($("#pop").text);
+            })
+        });
+
+        $(document).ready(function(){
+        $("p").click(function(){
+            alert("The paragraph was clicked.");
+        });
+        });
+    </script> -->
+</body>
+</html>
