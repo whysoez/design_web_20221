@@ -18,7 +18,7 @@
         </script>
     <script>
         var str = "đây là website chạy bằng js";
-        console.log(str);
+        // console.log(str);
         document.writeln(str+" oke!");
         function sum()
         {
@@ -30,11 +30,30 @@
         }
         // console.log(num);
 
-        let a = () => {
-            return 7;
-        }
+        // IIFE có nghĩa là khởi tạo một chương trình và thực thi nó ngay.
+        // thường được gọi để lấy kết quả của hàm dùng một lần
+        // sau đây là 3 ví dụ về IIFE ví dụ:
 
-        console.log(a());
+        console.log("ví dụ IIFE với 2 số m = 5 và n = 8:")
+        
+        let a = ((m,n) => {
+            return m+n;
+        })(5,8);
+        console.log("tổng của 2 số là: " + a);
+
+        let b = (FuncTich = (m,n) => {
+            return m*n;
+        })(5,8);
+        console.log("tích của 2 số là: "+b);
+
+        let c = (function(m,n) {
+            return m-n;
+        })(5,8);
+        console.log("Hiệu của 2 số là: "+c);
+
+
+
+
 
         function show_value(){
             var a = document.getElementById("show");

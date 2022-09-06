@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>change color</title>
+    <style>
+        #select{
+            border: 1px solid rgba(162, 151, 151, 0.564);
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .red, #red{
+            background: red;
+        }
+        .green, #green{
+            background: green;
+        }
+        .yellow, #yellow{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="red" class="w3-btn w3-border w3-round-large">red</button>
+    <button id="green" class="w3-btn w3-border w3-round-large">green</button>
+    <button id="yellow" class="w3-btn w3-border w3-round-large">yellow</button>
+    <div id="select" class="w3-margin-top w3-margin-left">
+        <div class="change">change color</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#red").click(function() {
+                $("#select").removeClass("yellow").removeClass("green").addClass("red");
+            })
+            $("#green").click(function() {
+                $("#select").removeClass("yellow").removeClass("red").addClass("green");
+            })
+            $("#yellow").click(function() {
+                $("#select").removeClass("green").removeClass("red").addClass("yellow");
+            })
+        });
+    </script>
+</body>
+</html>

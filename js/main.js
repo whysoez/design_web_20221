@@ -1,7 +1,7 @@
 var myIndex = 0;
-        carousel();
+carousel();
 
-        function carousel() {
+    function carousel() {
         var i;
         var x = document.getElementsByClassName("mySlides");
         // x = x.length;
@@ -16,9 +16,9 @@ var myIndex = 0;
 
         
 var myIndex1 = 0;
-        carousel1();
+carousel1();
 
-        function carousel1() {
+function carousel1() {
         var j;
         var x1 = document.getElementsByClassName("mySlides1");
         // x1 = x1.length;
