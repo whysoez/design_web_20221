@@ -25,6 +25,17 @@
         .yellow, #yellow{
             background: yellow;
         }
+        .full {
+            width: 100%;
+            background: yellow;
+            height: 100px;
+            display: flex;
+        }
+        .width {
+            flex: 1;
+            width: 100%;
+            border: 2px solid red;
+        }
     </style>
 </head>
 <body>
@@ -35,16 +46,39 @@
         <div class="change">change color</div>
     </div>
 
+    <div class="full">
+        <div class="width">1</div>
+        <div class="width">2</div>
+        <div class="width">3</div>
+        <div class="width">444444444444444</div>
+        <div class="width">1</div>
+        <div class="width">2</div>
+        <div class="width">333333333333</div>
+        <div class="width">4</div>
+        <div class="width">11111111111</div>
+        <div class="width">2</div>
+        <div class="width">3</div>
+        <div class="width">4</div>
+        <div class="width">1</div>
+        <div class="width">2</div>
+        <div class="width">333333333333bbbbbbbbb</div>
+        <div class="width">4</div>
+        <div class="width">11111111111</div>
+        <div class="width">2</div>
+        <div class="width">3</div>
+        <div class="width">4</div>
+    </div>
+
     <script>
         $(document).ready(function() {
             $("#red").click(function() {
-                $("#select").removeClass("yellow").removeClass("green").addClass("red");
+                $("#select").removeClass("yellow green").addClass("red");
             })
             $("#green").click(function() {
-                $("#select").removeClass("yellow").removeClass("red").addClass("green");
+                $("#select").removeClass("yellow red").addClass("green");
             })
             $("#yellow").click(function() {
-                $("#select").removeClass("green").removeClass("red").addClass("yellow");
+                $("#select").removeClass("green red").addClass("yellow");
             })
         });
     </script>
