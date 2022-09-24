@@ -24,7 +24,7 @@
         <h1 style = "text-align: center;">Trang quản trị danh mục tin tức</h1>
         <div class="row">
             <div class="col-8">
-                <form action="upload.php" method="post" enctype="multipart/form-data">
+                <form action="handleNews.php" method="post" enctype="multipart/form-data">
                     <div><strong>Chọn tên danh mục</strong></div>
                     <select name="cateId" id="">
                         <?php
@@ -116,9 +116,9 @@
                                         "<td>" . $row["author"]. "</td>" . 
                                         "<td>" . $row["content"]. "</td>" . 
                                         "<td>" . $s . "</td>" .  
-                                        '<td>
-                                        <a href="#" class="btn btn-warning">Sửa</a>
-                                        <a href="#" class="btn btn-danger">Xóa</a>
+                                        '<td style="display:flex">
+                                        <a href="uNews.php?id='.$row['newId'].'" class="btn btn-warning">Sửa</a>
+                                        <a href="handleNews.php?task=delete&id='.$row['newId'].'" class="btn btn-danger">Xóa</a>
                                         </td>' 
                                     . "</tr>";
                             }

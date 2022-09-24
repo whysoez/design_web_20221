@@ -47,5 +47,39 @@ if(isset($_POST['submit'])){
         $statusMsg = 'Tên AttributeName đã chọn không có.'; 
     }
 } 
+
+if(isset($_GET['task']) && $_GET['task']=="delete") {
+    $newId = $_GET['id'];
+    $sql = "delete from news where newId= $newId";
+    if (mysqli_query($conn, $sql)) {
+        header("location:news.php");
+        echo "Delete record successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+
+if(isset($_POST['update'])) {
+    $newId = $_POST['newId'];
+    $cateId = $_POST['cateId'];
+    $title = $_POST['title'];
+    $avatar= '1111';
+    $dateup = $_POST['dateup'];
+    $author = $_POST['author'];
+    $content = $_POST['content'];
+    $status = $_POST['status'];
+    $sql = "update news set cateId= $cateId, title= N'$title', avatar= $avatar, dateup= N'$dateup', 
+    author= N'$author', content= N'$content', status= $status where newId= $newId";
+    if (mysqli_query($conn, $sql)) {
+        echo "Update record successfully";
+        header("location:news.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+
+if(isset($_POST['cancel'])) {
+    header("location:news.php");
+}
  
 ?>

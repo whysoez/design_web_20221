@@ -15,14 +15,14 @@
         <h1 style = "text-align: center;">Trang quản trị danh mục tin tức</h1>
         <div class="row">
             <div class="col-8">
-                <form action="ccate.php" method="post">
+                <form action="handleCate.php" method="post">
                     <div><strong>Nhập tên danh mục</strong></div>
                     <input type="text" class="form-control" name="cateName">
                     <div><strong>Nhập trạng thái</strong></div>
                     <input type="radio" name="status" value="0"> Ẩn
                     <input type="radio" name="status" value="1"> Hiện <br><br>
                     <input type="submit" name = "insertcate" value="thêm mới" class="btn btn-primary">
-                    </form>
+                </form>
             </div>
             <div class="col-4"></div>
         </div>
@@ -59,9 +59,9 @@
                                 "<td>" . $row["cateName"]. "</td>" . 
                                 "<td>" . $s . "</td>" . 
                                 '<td>
-                                <a href="#" class="btn btn-warning">Sửa</a>
-                                <a href="#" class="btn btn-danger">Xóa</a>
-                                </td>' 
+                                <a href="uCate.php?id='.$row['cateId'].'" class="btn btn-warning">Sửa</a>
+                                <a href="handleCate.php?task=delete&id='.$row['cateId'].'" class="btn btn-danger">Xóa</a>
+                                </td>'
                                 . "</tr>";
                             }
                             } else {
