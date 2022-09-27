@@ -1,7 +1,7 @@
 <?php 
 // Include the database configuration file 
 include 'config.php'; 
-     
+
 if(isset($_POST['submit'])){ 
 
     // var data to mysql
@@ -32,6 +32,8 @@ if(isset($_POST['submit'])){
                 $errorUploadType .= $_FILES['files']['name'][$key].' | '; 
             }
         } 
+
+
         // split * end string
         $avatar = substr($t,0,strlen($t)-1);
         // insert data to mysql
@@ -63,18 +65,61 @@ if(isset($_POST['update'])) {
     $newId = $_POST['newId'];
     $cateId = $_POST['cateId'];
     $title = $_POST['title'];
-    $avatar= '1111';
     $dateup = $_POST['dateup'];
     $author = $_POST['author'];
     $content = $_POST['content'];
     $status = $_POST['status'];
-    $sql = "update news set cateId= $cateId, title= N'$title', avatar= $avatar, dateup= N'$dateup', 
-    author= N'$author', content= N'$content', status= $status where newId= $newId";
-    if (mysqli_query($conn, $sql)) {
-        echo "Update record successfully";
-        header("location:news.php");
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    
+    // xóa ảnh cũ thay ảnh mới vào folder ./upload
+    $img = $_POST['avatarOld'];
+        $arr_img = (explode('*', $img));
+        echo $arr_img;
+        foreach($arr_img as $i){
+            $file_pointer = "./". $i;
+        
+            // Use unlink() function to delete a file
+            if (!unlink($file_pointer)) {
+                echo ("$file_pointer cannot be deleted due to an error");
+            }
+            else {
+                echo ("$file_pointer has been deleted");
+                // header("location:news.php");
+            }
+        }
+
+    $targetDir = "upload/"; 
+    $allowTypes = array('jpg','png','jpeg','gif'); 
+    $fileNames = array_filter($_FILES['files']['name']); 
+    if(!empty($fileNames)){ 
+        $t = '';
+        foreach($_FILES['files']['name'] as $key=>$val){ 
+            // File upload path 
+            $fileName = basename($_FILES['files']['name'][$key]); 
+            $targetFilePath = $targetDir . $fileName; 
+            $t .= $targetFilePath . '*';
+            // Check whether file type is valid 
+            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+            if(in_array($fileType, $allowTypes)){ 
+                // Upload file to server 
+                move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath);
+            }else{ 
+                $errorUploadType .= $_FILES['files']['name'][$key].' | '; 
+            }
+        } 
+
+        // split * end string, update string avatar in DB
+        $avatar = substr($t,0,strlen($t)-1);
+        // update data to mysql
+        $sql = "update news set cateId= $cateId, title= N'$title', avatar= N'$avatar', dateup= N'$dateup', 
+        author= N'$author', content= N'$content', status= $status where newId= $newId";
+        if (mysqli_query($conn, $sql)) {
+            echo "Update record successfully";
+            header("location:news.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    }else{ 
+        $statusMsg = 'Tên AttributeName đã chọn không có.'; 
     }
 }
 

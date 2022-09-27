@@ -48,6 +48,7 @@
                             if ($result->num_rows > 0) {
                                 while($row = $result->fetch_assoc()) {
                                     $content = substr($row['content'],0,strlen($row['content'])-1);
+                                    echo '<input type="hidden" name="avatarOld" value="'.$row['avatar'].'">';
                                     echo '<input type="hidden" name="newId" value='.$newId.'>';
                                     echo "<div><strong>Nhập tiêu đề bài viết</strong></div>";
                                     echo '<input type="text" class="form-control" name="title" id="" value="'.$row['title'].'" placeholder="Nhập tiêu đề bài viết...">
@@ -60,15 +61,15 @@
                                     <div><strong>Nhập trạng thái</strong></div>
                                     <input type="radio" name="status" value="0"> Ẩn
                                     <input type="radio" name="status" value="1"> Hiện
-                                    <div><strong>Nhập nội dung bài viết</strong></div>
-                                    <textarea name="content" id="" cols="30" rows="10" value="'.$content.'"></textarea>';
+                                    <div><strong>Nhập nội dung bài viết</strong></div>';
+                                    echo '<textarea name="content" id="" cols="30" rows="10">'.$content.'</textarea>';
                                 }
                             } else {
                                 echo "0 result";
                             }
                     ?>
                     <script>
-                        CKEDITOR.replace('content');
+                        // CKEDITOR.replace('content');
                     </script>
                     <br>
                     <input type="submit" name = "update" value="Cập nhật" class="btn btn-primary">
