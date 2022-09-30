@@ -64,6 +64,14 @@
             <div class="col-4"></div>
         </div>
         <br>
+
+        <!-- thêm mới phần tìm kiếm -->
+        <form action="news.php" method="get">
+            <div><strong>Nhập tên bài viết cần tìm kiếm</strong></div>
+                        <input type="text" class="form-control col-8" name="cateNameSearch">
+                        <input type="submit" name = "search" value="Tìm kiếm" class="btn btn-primary">
+        </form>
+
         <div class="row">
             <div style = "margin: 0px auto 20px; font-size: 32px;">
             <strong>Danh sách các bài viết</strong>
@@ -87,6 +95,14 @@
                     <tr>
                         <?php
                             $sql = "SELECT * FROM news";
+
+                            // thêm mới phần tìm kiếm
+                            if(isset($_GET["search"])) {
+                                $s = $_GET['cateNameSearch'];
+                                // echo $s;
+                                $sql = "SELECT * FROM news WHERE title LIKE '".'%'.$s."%' ";
+                            }
+
                             $result = $conn->query($sql);
                     
                             if ($result->num_rows > 0) {

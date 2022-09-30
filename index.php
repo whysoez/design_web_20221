@@ -27,6 +27,14 @@
             <div class="col-4"></div>
         </div>
         <br>
+        <br>
+
+        <form action="index.php" method="get">
+            <div><strong>Nhập tên danh mục cần tìm kiếm</strong></div>
+                        <input type="text" class="form-control col-8" name="cateNameSearch">
+                        <input type="submit" name = "search" value="Tìm kiếm" class="btn btn-primary">
+        </form>
+
         <div class="row">
             <div style = "margin: 0px auto 20px; font-size: 32px;">
             <strong>Danh sách các danh mục</strong>
@@ -44,9 +52,15 @@
                 <tbody>
                     <tr>
                         <?php
-                            $sql = "SELECT * FROM category";
+                            $sql = "SELECT * FROM category ";
+                            
+                            if(isset($_GET["search"])) {
+                                $s = $_GET['cateNameSearch'];
+                                // echo $s;
+                                $sql = "SELECT * FROM category WHERE cateName LIKE '".'%'.$s."%' ";
+                            }
                             $result = $conn->query($sql);
-                    
+
                             if ($result->num_rows > 0) {
                             // output data of each row
                             while($row = $result->fetch_assoc()) {

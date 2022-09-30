@@ -68,6 +68,10 @@
                                 echo "0 result";
                             }
                     ?>
+                    
+                    <script>
+                        CKEDITOR.replace('content');
+                    </script>
                     <script>
                         // CKEDITOR.replace('content');
                     </script>
