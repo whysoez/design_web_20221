@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>update category</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/php.css">    <title>update category</title>
 </head>
 <body>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid ">
+        <div class="navbar-header">
+        <!-- <a class="navbar-brand" href="#">Trang chủ</a> -->
+        </div>
+        <ul class="nav navbar-nav">
+        <li class="active"><a href="cate.php">Danh mục</a></li>
+        <li><a href="news.php">Tin tức</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+    </nav>
     <div class="container">
         <h1 style = "text-align: center;">Trang cập nhật danh mục tin tức</h1>
             <div class="row">

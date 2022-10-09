@@ -4,13 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <!-- nav w3school -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/php.css">
+    <!-- dataTable -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <title>Document</title>
     <title>Đào tạo HUMG</title>
     <?php
         include 'config.php';
     ?>
 </head>
 <body>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid ">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="./old/index.html">Trang chủ</a>
+        </div>
+        <ul class="nav navbar-nav">
+        <li class="active"><a href="cate.php">Danh mục</a></li>
+        <li><a href="news.php">Tin tức</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" action="cate.php" method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Cate Name" name="cateNameSearch">
+            <div class="input-group-btn">
+            <button class="btn btn-default" type="submit" name = "search">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+            </div>
+        </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+    </nav>
     <div class="container">
         <h1 style = "text-align: center;">Trang quản trị danh mục tin tức</h1>
         <div class="row">
@@ -28,19 +63,10 @@
         </div>
         <br>
         <br>
-
-        <form action="index.php" method="get">
-            <div><strong>Nhập tên danh mục cần tìm kiếm</strong></div>
-                        <input type="text" class="form-control col-8" name="cateNameSearch">
-                        <input type="submit" name = "search" value="Tìm kiếm" class="btn btn-primary">
-        </form>
-
         <div class="row">
-            <div style = "margin: 0px auto 20px; font-size: 32px;">
-            <strong>Danh sách các danh mục</strong>
-            </div>
+            <h2 style = "text-align: center;">Danh sách các danh mục</h2> <br>
             <!-- hiển thị bảng data -->
-            <table class="table table-striped">
+            <table id="tCate" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>Mã danh mục</th>
@@ -50,7 +76,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
                         <?php
                             $sql = "SELECT * FROM category ";
                             
@@ -82,19 +107,19 @@
                             echo "0 results";
                             }
                         ?>
-                    </tr>
                 </tbody>
             </table>
         </div>
-        <ul class="pagination justify-content-center">
-            <li class="page-item" name="pagin"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-            <li class="page-item" name="pagin"><a class="page-link" href="javascript:void(0);">1</a></li>
-            <li class="page-item" name="pagin"><a class="page-link" href="javascript:void(0);">2</a></li>
-            <li class="page-item" name="pagin"><a class="page-link" href="javascript:void(0);">3</a></li>
-            <li class="page-item" name="pagin"><a class="page-link" href="javascript:void(0);">4</a></li>
-            <li class="page-item" name="pagin"><a class="page-link" href="javascript:void(0);">5</a></li>
-            <li class="page-item" name="pagin"><a class="page-link" href="javascript:void(0);">Next</a></li>
-        </ul>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('#tCate').DataTable({
+        lengthMenu: [
+            [3, 10, -1],
+            [3, 10, 'All'],
+        ],
+    });
+        });
+    </script>
 </body>
 </html>
