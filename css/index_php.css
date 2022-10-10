@@ -1,5 +1,5 @@
 .nav_sticky {
-    position: sticky;
+    position: fixed;
     top: 0px;
     z-index: 10;
     /* background-color: rgb(90, 152, 223); */
