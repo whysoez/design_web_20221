@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse nav_sticky">
+    <nav class="navbar navbar-inverse">
     <div class="container-fluid ">
         <div class="navbar-header">
         <a class="navbar-brand" href="./old/index.html">Trang chủ</a>
