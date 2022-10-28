@@ -22,7 +22,7 @@
 
     - file main.js để xử lý hình ảnh trượt;
 
-## Link github ****
+## Link github **https://github.com/whysoez/design_web_20221/tree/php** branch php
 
 ## Đinh Văn Hưng_____Lucas.Dinh
 
